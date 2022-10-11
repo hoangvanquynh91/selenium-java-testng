@@ -69,10 +69,32 @@ public class Topic_02_Selenium_Locator {
 	public void TC_07_CSS() {
 		//Mo trang register
 		driver.get("https://demo.nopcommerce.com/register");
+		
+		//1
+		driver.findElement(By.cssSelector("input#FirstName")).sendKeys("SeleniumFirstName");
+		
+		//2
+		driver.findElement(By.cssSelector("input[id='LastName']")).sendKeys("SeleniumLastName");
+		
+		//3
+		driver.findElement(By.cssSelector("input[name='Email']")).sendKeys("abc@gmail.com");
+		
 	}
 	
 	@Test
 	public void TC_08_XPath() {
+		//Mo trang register
+		driver.get("https://demo.nopcommerce.com/register");
+				
+		//1
+		//driver.findElement(By.xpath("//input[@data-val-required='First name is required.']")).sendKeys("SeleniumFirstName");
+		driver.findElement(By.cssSelector("input#FirstName")).sendKeys("SeleniumFirstName");
+				
+		//2
+		driver.findElement(By.xpath("//input[@id='LastName']")).sendKeys("SeleniumLastName");
+				
+		//3
+		driver.findElement(By.xpath("//label[text()='Email:']/following-sibling::input")).sendKeys("QuynhHV@gmail.com");
 		
 	}
 	
