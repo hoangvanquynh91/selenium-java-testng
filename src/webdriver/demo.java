@@ -26,7 +26,7 @@ public class demo {
 
 	@Test
 	public void TC_01() {
-		driver.findElement(By.xpath("//input[@data-view-id=\"main_search_form_input\"]")).sendKeys("xe may");
+		
 	}
 
 	@Test
