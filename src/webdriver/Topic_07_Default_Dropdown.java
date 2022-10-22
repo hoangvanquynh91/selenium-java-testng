@@ -6,6 +6,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,6 +20,7 @@ public class Topic_07_Default_Dropdown {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 	Select select;
+	JavascriptExecutor jsExcutor;
 	Random rand = new Random();
 	
 
@@ -26,6 +28,9 @@ public class Topic_07_Default_Dropdown {
 	public void beforeClass() {
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
 		driver = new FirefoxDriver();
+		
+		//khoi tao jsExcutor
+		jsExcutor = (JavascriptExecutor) driver;
 		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 	}
@@ -90,6 +95,8 @@ public class Topic_07_Default_Dropdown {
 	@Test
 	public void TC_02() {
 		driver.get("https://rode.com/en/support/where-to-buy");
+		
+		scrollToElement("div.rode-text ");
 		sleepInSecond(3);
 		
 		select = new Select(driver.findElement(By.cssSelector("select#country")));
@@ -122,9 +129,15 @@ public class Topic_07_Default_Dropdown {
 			e.printStackTrace();
 		}
 	}
+	
+	public void scrollToElement(String cssLocator) {
+		
+		jsExcutor.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.cssSelector(cssLocator)));
+		
+	}
 
 	@AfterClass
 	public void afterClass() {
-		driver.quit();
+		//driver.quit();
 	}
 }
