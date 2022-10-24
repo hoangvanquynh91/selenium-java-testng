@@ -4,7 +4,9 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.By.ByClassName;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -21,11 +23,18 @@ public class demo {
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		driver.get("https://tiki.vn/");
 	}
 
 	@Test
 	public void TC_01() {
+		driver.get("https://www.tutorialspoint.com/index.htm");
+		driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+	      // identify element
+	      WebElement l = driver.findElement(By.id("search-strings"));
+	      // enter text then ctrl+a with Keys.chord()
+	      l.sendKeys("Selenium");
+	      String s = Keys.chord(Keys.CONTROL, "a");
+	      l.sendKeys(s);
 		
 	}
 
@@ -41,6 +50,6 @@ public class demo {
 
 	@AfterClass
 	public void afterClass() {
-		driver.quit();
+		//driver.quit();
 	}
 }
