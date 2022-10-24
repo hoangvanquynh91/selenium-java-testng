@@ -73,7 +73,7 @@ public class Topic_10_Default_Radio_Checkbox {
 		Assert.assertFalse(driver.findElement(By.xpath("//input[@value='1-2 cups/day']")).isSelected());
 		
 	}
-	*/
+	
 	
 	@Test
 	public void TC_02() {
@@ -101,6 +101,46 @@ public class Topic_10_Default_Radio_Checkbox {
 		}
 		
 	}
+	*/
+	
+
+	public void TC_03_Default() {
+		driver.get("https://demos.telerik.com/kendo-ui/checkbox/index");
+		sleepInSecond(5);
+		
+		//Check vao checkbox
+		checkToCheckboxOrRadio("//label[text()='Luggage compartment cover']/preceding-sibling::input");
+		Assert.assertTrue(isElementSelected("//label[text()='Luggage compartment cover']/preceding-sibling::input"));
+		sleepInSecond(3);
+		
+		//Uncheck
+		uncheckToCheckboxOrRadio("//label[text()='Luggage compartment cover']/preceding-sibling::input");
+		Assert.assertFalse(isElementSelected("//label[text()='Luggage compartment cover']/preceding-sibling::input"));
+		
+		
+		
+	}
+	@Test
+	public void TC_04_DefaultCheckAll() {
+		driver.get("https://demos.telerik.com/kendo-ui/checkbox/index");
+		sleepInSecond(5);
+		
+		//Check vao checkbox
+		List<WebElement> element = driver.findElements(By.xpath("//ul[@class='fieldlist']//input[@type='checkbox']"));
+		
+		for (WebElement checkbox : element) {
+			if(!checkbox.isSelected() && checkbox.isEnabled()) {
+				checkbox.click();
+				Assert.assertTrue(checkbox.isSelected());
+			}
+			
+		}
+		
+		
+		
+	}
+	
+	
 
 	
 	
