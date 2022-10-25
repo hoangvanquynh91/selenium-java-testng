@@ -41,11 +41,7 @@ public class Topic_09_Button {
 		
 			driver.switchTo().defaultContent();
 		//chuyen sang tab login
-		driver.findElement(By.cssSelector("li.popup-login-tab-login")).click();
-		
-		//driver.findElement(By.xpath("//button[@class='fhs-btn-login']")).getCssValue("background-color");
-		
-		
+		    driver.findElement(By.cssSelector("li.popup-login-tab-login")).click();
 		
 		//vertify button dang nhap
 		Assert.assertFalse(driver.findElement(By.cssSelector("button.fhs-btn-login")).isEnabled());
@@ -56,7 +52,6 @@ public class Topic_09_Button {
 		
 		String rgbaColor = driver.findElement(By.xpath("//button[@class='fhs-btn-login']")).getCssValue("background-color");
 		
-		
 		//convert to hexa color
 		String hexaColor = Color.fromString(rgbaColor).asHex().toUpperCase();
 		
@@ -65,15 +60,6 @@ public class Topic_09_Button {
 		
 	}
 
-	@Test
-	public void TC_02() {
-		
-	}
-
-	@Test
-	public void TC_03() {
-		
-	}
 	public void sleepInSecond (long timeSecond) {
 		try {
 			Thread.sleep(timeSecond * 1000);

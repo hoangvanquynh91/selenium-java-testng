@@ -59,34 +59,74 @@ public class Topic_11_Custom_Radio_Checkbox {
 		sleepInSecond(3);
 		
 		Assert.assertTrue(driver.findElement(By.xpath("//span[text()='Checked']//preceding-sibling::span/input")).isSelected());
-		
-		
-		
-		
+			
 		
 	}
 
 	
-	@Test
+	
 	public void TC_02_CustomRadio() {
 		driver.get("https://material.angular.io/components/radio/examples");
 		jsExcutor.executeScript("arguments[0].click();", driver.findElement(By.xpath("//span[contains(text(),'Spring')]//preceding-sibling::span/input")));
 		sleepInSecond(3);
 		
 		Assert.assertTrue(driver.findElement(By.xpath("//span[contains(text(),'Spring')]//preceding-sibling::span/input")).isSelected());
-		
-		
+
+	}
+	
+	public void TC_03_Vndirect() {
+		driver.get("https://account-v2.vndirect.com.vn/");
+		sleepInSecond(2);
+		jsExcutor.executeScript("arguments[0].click();",driver.findElement(By.xpath("//input[@name='acceptTerms']")));
+		sleepInSecond(2);
 		
 	}
-
-	public void TC_02() {
+	
+	
+	@Test
+	public void TC_04_googleDocs() {
+		driver.get("https://docs.google.com/forms/d/e/1FAIpQLSfiypnd69zhuDkjKgqvpID9kwO29UCzeCVrGGtbNPZXQok0jA/viewform");
+		sleepInSecond(5);
+		
+//		By haNoiRadio = By.xpath("//div[@aria-label='Hà Nội']");
+//		
+//		//Verify trước khi click
+//		Assert.assertEquals(driver.findElement(haNoiRadio).getAttribute("aria-checked"), "false");
+//		sleepInSecond(5);
+//		driver.findElement(haNoiRadio).click();
+//		Assert.assertEquals(driver.findElement(haNoiRadio).getAttribute("aria-checked"), "true");
+		
+		
+		
+		checkToCheckBox("//div[@aria-label='Mì Quảng']");
+		sleepInSecond(3);
+		Assert.assertEquals(driver.findElement(By.xpath("//div[@aria-label='Mì Quảng']")).getAttribute("aria-checked"), "true");
+		
+		
+		unCheckToCheckBox("//div[@aria-label='Mì Quảng']");
+		sleepInSecond(3);
+		
+		Assert.assertEquals(driver.findElement(By.xpath("//div[@aria-label='Mì Quảng']")).getAttribute("aria-checked"), "false");
+		sleepInSecond(5);
 		
 	}
-
-
-	public void TC_03() {
+	
+	public void checkToCheckBox(String Locator) {
+		if(driver.findElement(By.xpath(Locator)).getAttribute("aria-checked").equals("false")) {
+			driver.findElement(By.xpath(Locator)).click();
+			
+		}
 		
 	}
+	
+	public void unCheckToCheckBox(String Locator) {
+		if(driver.findElement(By.xpath(Locator)).getAttribute("aria-checked").equals("true")) {
+			driver.findElement(By.xpath(Locator)).click();
+			
+		}
+		
+	}
+	
 	public void sleepInSecond (long timeSecond) {
 		try {
 			Thread.sleep(timeSecond * 1000);
