@@ -10,7 +10,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_00_Template {
+public class Topic_15_Random_Popup {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 
@@ -24,15 +24,16 @@ public class Topic_00_Template {
 
 	@Test
 	public void TC_01() {
+		driver.get(projectPath);
 		
 	}
 
-	@Test
+	
 	public void TC_02() {
 		
 	}
 
-	@Test
+	
 	public void TC_03() {
 		
 	}
