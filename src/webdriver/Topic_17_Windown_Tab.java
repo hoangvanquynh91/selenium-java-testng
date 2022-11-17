@@ -23,7 +23,7 @@ public class Topic_17_Windown_Tab {
 		driver.manage().window().maximize();
 	}
 
-	
+	@Test
 	public void TC_01() {
 		//Parent Page
 		driver.get("https://automationfc.github.io/basic-form/");
@@ -78,7 +78,7 @@ public class Topic_17_Windown_Tab {
 		
 	}
 
-	@Test
+	
 	public void TC_02() {
 		driver.get("http://live.techpanda.org/index.php/mobile.html");
 		driver.findElement(By.xpath("//a[@title='Sony Xperia']/parent::h2/following-sibling::div[@class='actions']//a[@class='link-compare']")).click();
