@@ -26,7 +26,7 @@ public class demo {
 	@Test
 	public void TC_01() {
 		driver.get("http://192.168.50.6:8480/nts.uk.com.web/view/ccg/007/d/index.xhtml");
-		sleepInSecond(3);
+		sleepInSecond(5);
 		
 		driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@name='window_1']")));
 		sleepInSecond(3);

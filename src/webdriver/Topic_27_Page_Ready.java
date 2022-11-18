@@ -32,8 +32,8 @@ public class Topic_27_Page_Ready {
 	@Test
 	public void TC_01() {
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-		//Assert.assertFalse(isPageLoadedSuccess());
-		sleepInSecond(10);
+		Assert.assertTrue(isPageLoadedSuccess());
+		//sleepInSecond(10);
 		String employeeName = "Peter Mac Anderson";
 		driver.findElement(By.xpath("//input[@name='username']")).sendKeys("Admin");
 		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("admin123");

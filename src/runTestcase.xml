@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="Suite">
-  <test name="Test">
-    <classes>
-      <class name="testNG.Topic_01_Anotations"/>
+  
+ <!--   <classes>--> 
+     <!-- <class name="testNG.Topic_01_Anotations"/>--> 
+     
+ <!--   </classes>
+    <groups>
+    	<run>
+    		<include name = "Cart"/>
+    	</run>
+    </groups> -->
+ <!--    <packages>
+      	<package name = "tikiapp"/>
+      </packages>-->
+  <test name="Run On Edge">
+    <parameter name="brower" value = "Edge" />
+      	<classes>
+      		<class name="testNG.Topic_05_Parameter_Brower"/>
+      	</classes>
       
-    </classes>
+  </test> <!-- Test -->
+  <test name="Run On Chorme">
+    <parameter name="brower" value = "Chorme" />
+      	<classes>
+      		<class name="testNG.Topic_05_Parameter_Brower"/>
+      	</classes>
+      
+  </test> <!-- Test -->
+   <test name="Run On Firefox">
+    <parameter name="brower" value = "Firefox" />
+      	<classes>
+      		<class name="testNG.Topic_05_Parameter_Brower"/>
+      	</classes>
+      
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -57,7 +57,7 @@ public class Topic_25_ImplicitWait_ExplicitWait {
 	
 	public void TC_02_Element_Not_Found_ImplicitWait() {
 		//3.1 Implicit = explicit
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		driver.get("https://www.facebook.com/");
 		//ImplicitWait
@@ -78,13 +78,13 @@ public class Topic_25_ImplicitWait_ExplicitWait {
 		
 	}
 
-
+	
 	public void TC_03_Element_Not_Found_Implicit_Explicit() {
 		// 1. Implicit = Explicit
 		// 2. Implicit > Explicit
 		// 3. Implicit < Explicit
 		
-		driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
 		explicitWait = new WebDriverWait(driver, 7);
 		
 		driver.get("https://www.facebook.com/");
@@ -111,7 +111,7 @@ public class Topic_25_ImplicitWait_ExplicitWait {
 		
 	}
 	
-	
+	@Test
 	public void TC_04_Element_Not_Found_Explicit() {
 		explicitWait = new WebDriverWait(driver, 5);
 		driver.get("https://www.facebook.com/");
@@ -129,7 +129,7 @@ public class Topic_25_ImplicitWait_ExplicitWait {
 		
 	}
 	
-	@Test
+	
 	public void TC_05_Element_Not_Found_Explicit_Element() {
 		driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
 		explicitWait = new WebDriverWait(driver, 5);
