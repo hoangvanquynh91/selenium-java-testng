@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name = "suite">
+  
+ <!--   <classes>--> 
+     <!-- <class name="testNG.Topic_01_Anotations"/>--> 
+     
+ <!--   </classes>-->
+    <groups>
+    	<run>
+    		<include name = "admin"/>
+    	</run>
+    </groups> 
+      
+      <test name="Run On Edge">
+      	<packages>
+      		<package name = "tikiapp" />
+      	</packages>
+      
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

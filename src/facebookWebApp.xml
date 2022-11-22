@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name = "facebookWebApp">
+  <test name="Run On Edge">
+      	<classes>
+      		<class name="facebooWebApplication.facebookPost"/>
+      	</classes>
+      
+  </test> <!-- Test -->
+
+</suite> <!-- Suite -->

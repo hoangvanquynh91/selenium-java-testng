@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name = "facebookMobile">
+  <test name = "Run On Edge">
+  	<classes>
+  		<class name = "facebookMobile.facebookMobilePost" />
+  	</classes>
+  </test>
+
+  
+</suite> <!-- Suite -->

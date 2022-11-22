@@ -11,10 +11,11 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class Topic_05_Parameter_Brower {
+public class Topic_06_Parameter_Enviroment {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 	By emailTextBox = By.xpath("//*[@id='email']");
@@ -23,7 +24,7 @@ public class Topic_05_Parameter_Brower {
 	
 	@Parameters("brower")
 	@BeforeClass
-	public void beforeClass(String browerName) {
+	public void beforeClass(@Optional("Edge") String browerName) {
 		//If Else
 //		if (browerName.equals("Edge")) {
 //			System.setProperty("webdriver.edge.driver", projectPath + "\\browserDrivers\\msedgedriver.exe");
@@ -62,10 +63,13 @@ public class Topic_05_Parameter_Brower {
 		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
-	
+	@Parameters("environment")
 	@Test
-	public void TC_01_LoginToSystem() {
-		driver.get("http://live.techpanda.org/index.php/customer/account/login/");
+	public void TC_01_LoginToSystem(String envName) {
+		String envUrl = getEnvironmentURL(envName);
+		
+		
+		driver.get(envUrl +"/index.php/customer/account/login/");
 		driver.findElement(emailTextBox).sendKeys("selenium_11_01@gmail.com");
 		driver.findElement(passwordTextBox).sendKeys("111111");
 		driver.findElement(loginButton).click();
@@ -73,6 +77,17 @@ public class Topic_05_Parameter_Brower {
 		driver.findElement(By.xpath("//header[@id='header']//span[text()='Account']")).click();
 		driver.findElement(By.xpath("//a[text()='Log Out']")).click();
 
+	}
+	public String getEnvironmentURL(String envName) {
+		if (envName.equals("dev")) {
+			return "http://dev.techpanda.org";
+		} else if(envName.equals("test")){
+			return "http://test.techpanda.org";
+		}else if(envName.equals("live")) {
+			return "http://live.techpanda.org";
+		} else {
+			return null;
+		}
 	}
 
 	

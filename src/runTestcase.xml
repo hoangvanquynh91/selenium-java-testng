@@ -1,37 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite parallel="false" name="Suite">
-  
+<suite parallel="tests" name="Suite" thread-count = "3">
+ 
+   <Listeners>
+  	<Listener class-name="Listener.Listener"/>
+  </Listeners>
+ 
  <!--   <classes>--> 
      <!-- <class name="testNG.Topic_01_Anotations"/>--> 
      
- <!--   </classes>
-    <groups>
+   
+<!--   <groups>
     	<run>
     		<include name = "Cart"/>
     	</run>
-    </groups> -->
- <!--    <packages>
+    </groups> 
+   <packages>
       	<package name = "tikiapp"/>
-      </packages>-->
+    </packages>-->  
+ <!--<parameter name = "environment" value = "live"/> -->
   <test name="Run On Edge">
     <parameter name="brower" value = "Edge" />
       	<classes>
-      		<class name="testNG.Topic_05_Parameter_Brower"/>
+      		<class name="testNG.Topic_09_Listener"/>
       	</classes>
       
-  </test> <!-- Test -->
-  <test name="Run On Chorme">
-    <parameter name="brower" value = "Chorme" />
+  </test>
+  <!--
+ <test name="Run On Chorme">
+    <parameter name="brower" value = "Chrome" />
       	<classes>
       		<class name="testNG.Topic_05_Parameter_Brower"/>
       	</classes>
       
-  </test> <!-- Test -->
-   <test name="Run On Firefox">
+  </test>
+ <test name="Run On Firefox">
     <parameter name="brower" value = "Firefox" />
       	<classes>
       		<class name="testNG.Topic_05_Parameter_Brower"/>
       	</classes>
       
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+  </test> 
+  -->
+  
+
+</suite> 
