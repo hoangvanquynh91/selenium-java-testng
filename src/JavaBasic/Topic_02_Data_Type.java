@@ -3,7 +3,7 @@ package JavaBasic;
 public class Topic_02_Data_Type {
 	
 	//Primitive type / value type : Kiểu dữ liệu nguyên thủy
-	byte BNumber;
+	byte BNumber = 1;
 	short sNumber;
 	int iNumber;
 	long lNumber;
